@@ -108,3 +108,21 @@ def TrainingLoss (x, t, w):
   mat = np.subtract(t, np.matmul(x, w))
   loss = (1/len(x)) * np.matmul(np.transpose(mat), mat)
   return loss[0][0]
+
+def AllLossPlot (df, k):
+  # Looping block to obtain loss for several polynomial order
+  training_loss_list, validation_loss_list = [], []
+  degree_list = []
+  for degree in range (1, 11+1):
+    degree_list.append(degree)
+  
+    x,t = InitializeData(df, degree)
+    w = LinearRegression(x, t, degree)
+    training_loss = TrainingLoss(x, t, w)
+  
+    x_training_list, t_training_list, x_validation_list, t_validation_list, w_list = CV_ArrPreparation (k, x, t, degree)
+    validation_loss = CV_ValidationLoss (k, x_validation_list, t_validation_list, w_list)
+  
+    training_loss_list.append(training_loss)
+    validation_loss_list.append(validation_loss)
+  return degree_list, training_loss_list, validation_loss_list
