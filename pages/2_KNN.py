@@ -64,6 +64,10 @@ if proceed:
     ax.set_title('CV Loss')
     ax.plot([i for i in range (1,k_max+1)], loss_list)
     ax.grid()
+
+    # Example of predicting class of a data
+    x_example = x_data[10] # Input x_new
+    t_example_new = PredictNN(k_nn_optimal, x, x_data, t_data)
     
     # Predicting classes for all data
     t_new_list = []
@@ -83,6 +87,11 @@ if proceed:
   st.markdown("# Performing CV to Find Optimal K")
   st.pyplot(fig)
   st.text("Optimal K: " + str(k_nn_optimal))
+  
+  st.markdown("Example of Predicting Class of A Data")
+  st.text("Optimal K is used.")
+  st.text("data: " + str(x_example))
+  st.text("class: " + str(t_example_new))
+  
   st.markdown("# Confusion Matrix")
   st.write(conf_matrix)
-
