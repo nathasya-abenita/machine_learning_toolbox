@@ -88,7 +88,7 @@ if proceed:
   st.pyplot(fig)
   st.text("Optimal K: " + str(k_nn_optimal))
   
-  st.markdown("Example of Predicting Class of A Data")
+  st.markdown("# Example of Predicting Class of A Data")
   st.text("Optimal K is used.")
   st.text("data: " + str(x_example))
   st.text("class: " + str(t_example_new))
