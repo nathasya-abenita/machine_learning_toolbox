@@ -67,7 +67,7 @@ if proceed:
 
     # Example of predicting class of a data
     x_example = x_data[10] # Input x_new
-    t_example_new = PredictNN(k_nn_optimal, x, x_data, t_data)
+    t_example_new = PredictNN(k_nn_optimal, x_example, x_data, t_data)
     
     # Predicting classes for all data
     t_new_list = []
